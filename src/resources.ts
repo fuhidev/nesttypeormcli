@@ -6,7 +6,7 @@ import { OptionType } from './enums/option-type';
 
 export const resources = new Map<ResourceType, IResource>([
   [
-    ResourceType.Module,
+    ResourceType.Full,
     {
       locDirName: (loc, config) =>
         !config.defaults.module.flat ? loc.fileName : loc.dirName,
@@ -16,10 +16,13 @@ export const resources = new Map<ResourceType, IResource>([
         { name: (config) => `module.ts`, type: TemplateType.Module },
         { name: (config) => `service.ts`, type: TemplateType.Service },
         { name: (config) => `entity.ts`, type: TemplateType.Entity },
-        // { name: config => `component.spec.ts`, type: TemplateType.ConponentSpec, condition: (config, params) => config.defaults.module.spec }
       ],
       createFolder: (config) => !config.defaults.module.flat,
-      options: [OptionType.CommonModule, OptionType.Module],
+      options: [ OptionType.Module],
     },
   ],
+  [ResourceType.Controller, { files: [{ name: config => `ts`, type: TemplateType.Controller }] }],
+  [ResourceType.Entity, { files: [{ name: config => `ts`, type: TemplateType.Entity }] }],
+  [ResourceType.Service, { files: [{ name: config => `ts`, type: TemplateType.Service }] }],
+  [ResourceType.Module, { files: [{ name: config => `ts`, type: TemplateType.Module }] }],
 ]);

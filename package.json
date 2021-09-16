@@ -2,7 +2,7 @@
     "name": "vscode-nesttpyeorm",
     "displayName": "Nest typeorm",
     "description": "Quickly scaffold nest typeorm templates",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "icon": "images/icon.png",
     "publisher": "fuhidev",
     "author": {
@@ -60,25 +60,34 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
+                },
+                "nesttypeorm.menu.full": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Shows or hides the menu item."
                 }
             }
         },
         "commands": [
             {
-                "command": "extension.addAngular2Controller",
+                "command": "extension.addNestTypeormController",
                 "title": "Generate Controller"
             },
             {
-                "command": "extension.addAngular2Service",
+                "command": "extension.addNestTypeormService",
                 "title": "Generate Service"
             },
             {
-                "command": "extension.addAngular2Entity",
+                "command": "extension.addNestTypeormEntity",
                 "title": "Generate Entity"
             },
             {
-                "command": "extension.addAngular2Module",
+                "command": "extension.addNestTypeormModule",
                 "title": "Generate Module"
+            },
+            {
+                "command": "extension.addNestTypeormFull",
+                "title": "Generate Full"
             }
         ],
         "submenus": [
@@ -97,19 +106,23 @@
             "nesttypeorm": [
                 {
                     "when": "config.nesttypeorm.menu.controller",
-                    "command": "extension.addAngular2Controller"
+                    "command": "extension.addNestTypeormController"
                 },
                 {
                     "when": "config.nesttypeorm.menu.service",
-                    "command": "extension.addAngular2Service"
+                    "command": "extension.addNestTypeormService"
                 },
                 {
                     "when": "config.nesttypeorm.menu.module",
-                    "command": "extension.addAngular2Module"
+                    "command": "extension.addNestTypeormModule"
+                },
+                {
+                    "when": "config.nesttypeorm.menu.full",
+                    "command": "extension.addNestTypeormFull"
                 },
                 {
                     "when": "config.nesttypeorm.menu.entity",
-                    "command": "extension.addAngular2Entity"
+                    "command": "extension.addNestTypeormEntity"
                 }
             ]
         }
