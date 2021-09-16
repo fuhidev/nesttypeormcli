@@ -14,50 +14,26 @@ export interface IApp {
   outDir?: string;
   assets?: string[];
   index?: string;
-  main?: string;
-  test?: string;
   tsconfig?: string;
-  prefix: string;
-  styles?: string[];
   scripts?: any[];
   environments?: IEnvironments;
 }
 
 
 export interface IProperties {
-  styleext?: string;
-  style?: string;
-  skipImport?: boolean;
   flat?: boolean;
-  spec?: boolean;
-  inlineStyle?: boolean;
-  inlineTemplate?: boolean;
-  viewEncapsulation?: 'Emulated' | 'Native' | 'None';
-  changeDetection?: 'Default' | 'OnPush';
-  prefix?: string;
-  selector?: string;
-  module?: string;
-  export?: boolean;
   [k: string]: any;
 }
 
 export interface IDefaults {
-  styleExt: string;
-  style?: string;
-  class?: IProperties;
-  component?: IProperties;
-  directive?: IProperties;
-  guard?: IProperties;
-  interface?: IProperties;
+  entity?: IProperties;
+  controller?: IProperties;
   module?: IProperties;
-  pipe?: IProperties;
   service?: IProperties;
-  resolver?: IProperties;
 }
 
 export interface IConfig {
   project?: IProject;
   apps: IApp[];
   defaults: IDefaults;
-  version?: 'ng5' | 'ng6';
 }

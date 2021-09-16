@@ -41,30 +41,10 @@ export class FileContents {
   public getTemplateContent(template: TemplateType, config: IConfig, inputName: string, params: string[] = []) {
     const templateName: string = template;
     const [app] = config.apps;
-    const cmpPrefix = config.defaults.component.prefix || app.prefix;
-    const dirPrefix = config.defaults.directive.prefix || app.prefix;
-    const cmpSelector = config.defaults.component.selector || `${cmpPrefix}-${inputName}`;
-    const dirSelector = config.defaults.directive.selector || `${dirPrefix}${toUpperCase(inputName)}`;
-    const styleExt = config.defaults.component.styleext || config.defaults.styleExt;
-    const routingScope = config.defaults.module.routingScope || 'Child';
-    const importCommonModule = config.defaults.module.commonModule;
 
     const args = [inputName,
       toUpperCase(inputName),
-      config.defaults.interface.prefix,
-      cmpPrefix,
-      dirPrefix,
-      cmpSelector,
-      dirSelector,
-      config.defaults.component.viewEncapsulation,
-      config.defaults.component.changeDetection,
-      config.defaults.component.inlineTemplate,
-      config.defaults.component.inlineStyle,
-      styleExt,
-      routingScope,
-      importCommonModule,
-      params];
-
+    ]
     return (this.templatesMap.has(templateName)) ? this.templatesMap.get(templateName)(...args) : '';
   }
 }

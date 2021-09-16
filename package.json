@@ -1,6 +1,6 @@
 {
-    "name": "vscode-angular2-files",
-    "displayName": "Angular Files",
+    "name": "vscode-nesttpyeorm",
+    "displayName": "Nest typeorm",
     "description": "Quickly scaffold angular file templates",
     "version": "1.6.4",
     "icon": "images/icon.png",
@@ -19,11 +19,6 @@
         "url": "https://github.com/ivalexa/vscode-angular2-files/issues"
     },
     "keywords": [
-        "Angular 2",
-        "angular-cli",
-        "angular",
-        "TypeScript",
-        "Templates"
     ],
     "categories": [
         "Other",
@@ -46,17 +41,7 @@
             "type": "object",
             "title": "Angular Files menu option configuration",
             "properties": {
-                "angular2-files.menu.component": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Shows or hides the menu item."
-                },
-                "angular2-files.menu.directive": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Shows or hides the menu item."
-                },
-                "angular2-files.menu.pipe": {
+                "angular2-files.menu.controller": {
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
@@ -66,22 +51,7 @@
                     "default": true,
                     "description": "Shows or hides the menu item."
                 },
-                "angular2-files.menu.class": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Shows or hides the menu item."
-                },
-                "angular2-files.menu.interface": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Shows or hides the menu item."
-                },
-                "angular2-files.menu.route": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Shows or hides the menu item."
-                },
-                "angular2-files.menu.enum": {
+                "angular2-files.menu.entity": {
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
@@ -90,119 +60,56 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
-                },
-                "angular2-files.menu.resolver": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Shows or hides the menu item."
                 }
             }
         },
         "commands": [
             {
-                "command": "extension.addAngular2Component",
-                "title": "Generate Component"
-            },
-            {
-                "command": "extension.addAngular2Directive",
-                "title": "Generate Directive"
-            },
-            {
-                "command": "extension.addAngular2Pipe",
-                "title": "Generate Pipe"
+                "command": "extension.addAngular2Controller",
+                "title": "Generate Controller"
             },
             {
                 "command": "extension.addAngular2Service",
                 "title": "Generate Service"
             },
             {
-                "command": "extension.addAngular2Class",
-                "title": "Generate Class"
-            },
-            {
-                "command": "extension.addAngular2Interface",
-                "title": "Generate Interface"
-            },
-            {
-                "command": "extension.addAngular2Route",
-                "title": "Generate Route"
-            },
-            {
-                "command": "extension.addAngular2Enum",
-                "title": "Generate Enum"
+                "command": "extension.addAngular2Entity",
+                "title": "Generate Entity"
             },
             {
                 "command": "extension.addAngular2Module",
                 "title": "Generate Module"
-            },
-            {
-                "command": "extension.addAngular2Resolver",
-                "title": "Generate Resolver"
             }
         ],
         "submenus": [
             {
-                "id": "angular2files",
-                "label": "Angular Files"
+                "id": "nesttypeorm",
+                "label": "Nest typeorm"
             }
         ],
         "menus": {
             "explorer/context": [                
                 {
-                    "submenu": "angular2files",
-                    "group": "1_Angular2files"
+                    "submenu": "nesttypeorm",
+                    "group": "1_nesttypeorm"
                 }
             ],
-            "angular2files": [
+            "nesttypeorm": [
                 {
-                    "when": "config.angular2-files.menu.component",
-                    "command": "extension.addAngular2Component",
-                    "group": "Angular2"
-                },
-                {
-                    "when": "config.angular2-files.menu.directive",
-                    "command": "extension.addAngular2Directive",
-                    "group": "Angular2"
-                },
-                {
-                    "when": "config.angular2-files.menu.pipe",
-                    "command": "extension.addAngular2Pipe",
-                    "group": "Angular2"
+                    "when": "config.angular2-files.menu.controller",
+                    "command": "extension.addAngular2Controller"
                 },
                 {
                     "when": "config.angular2-files.menu.service",
-                    "command": "extension.addAngular2Service",
-                    "group": "Angular2"
+                    "command": "extension.addAngular2Service"
                 },
                 {
                     "when": "config.angular2-files.menu.module",
-                    "command": "extension.addAngular2Module",
-                    "group": "Angular2"
+                    "command": "extension.addAngular2Module"
                 },
                 {
-                    "when": "config.angular2-files.menu.class",
-                    "command": "extension.addAngular2Class",
-                    "group": "Angular2 Essentials"
-                },
-                {
-                    "when": "config.angular2-files.menu.interface",
-                    "command": "extension.addAngular2Interface",
-                    "group": "Angular2 Essentials"
-                },
-                {
-                    "when": "config.angular2-files.menu.route",
-                    "command": "extension.addAngular2Route",
-                    "group": "Angular2 Essentials"
-                },
-                {
-                    "when": "config.angular2-files.menu.enum",
-                    "command": "extension.addAngular2Enum",
-                    "group": "Angular2 Essentials"
-                },
-                {
-                    "when": "config.angular2-files.menu.resolver",
-                    "command": "extension.addAngular2Resolver",
-                    "group": "Angular2 Essentials"
+                    "when": "config.angular2-files.menu.entity",
+                    "command": "extension.addAngular2Entity"
                 }
             ]
         }

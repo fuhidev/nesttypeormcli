@@ -1,21 +1,6 @@
 export enum TemplateType {
-    Component = 'component.tmpl',
-    ConponentSpec = 'component.spec.tmpl',
-    ComponentHtml = 'component.html.tmpl',
-    ComponentStyle = 'component.style.tmpl',
-    Directive = 'directive.tmpl',
-    DirectiveSpec = 'directive.spec.tmpl',
+    Controller = 'controller.tmpl',
     Module = 'module.tmpl',
-    ModuleRouting = 'module.routing.tmpl',
-    Pipe = 'pipe.tmpl',
-    PipeSpec = 'pipe.spec.tmpl',
     Service = 'service.tmpl',
-    ServiceNg6 = 'service.ng6.tmpl',
-    ServiceSpec = 'service.spec.tmpl',
-    Class = 'class.tmpl',
-    ClassSpec = 'class.spec.tmpl',
-    Enum = 'enum.tmpl',
-    Inteface = 'interface.tmpl',
-    Route = 'route.tmpl',
-    Resolver = 'resolver.tmpl'
+    Entity = 'entity.tmpl',
 }

@@ -46,13 +46,10 @@ export class ConfigurationManager {
       const project = newConfig.projects[newConfig.defaultProject];
       const projectConfig = this.parseSchematicsConfig(project);
       const prefix = project ? project.prefix : null;
-      oldConfig.apps[0].prefix = prefix || oldConfig.apps[0].prefix;
 
       // replace global config with project config
       deepMerge(oldConfig, globalConfig, projectConfig);
 
-      oldConfig.defaults.styleExt = oldConfig.defaults.component.styleext || oldConfig.defaults.styleExt;
-      oldConfig.version = 'ng6';
       return oldConfig;
     }
 
@@ -83,8 +80,6 @@ export class ConfigurationManager {
           }
         }
       }
-
-      config.defaults.styleExt = config.defaults.component.style || templateConfig.defaults.component.styleext || templateConfig.defaults.styleExt;
 
       return config;
     }

@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { ${upperName}Entity } from './entity';
 
 @Injectable()
-export class ${upperName}Service {
+export class ${upperName}Service extends {
 
-constructor() { }
+    constructor(@InjectRepository<${upperName}Entity> repo) {
+        super(repo);
+    }
 
 }
