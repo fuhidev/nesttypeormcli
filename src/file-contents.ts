@@ -9,7 +9,7 @@ import { TemplateType } from './enums/template-type';
 const fsReaddir = promisify(fs.readdir);
 const fsReadFile = promisify(fs.readFile);
 const TEMPLATES_FOLDER = 'templates';
-const TEMPLATE_ARGUMENTS = 'inputName, upperName, interfacePrefix, cmpPrefix, dirPrefix, cmpSelector, dirSelector, componentViewEncapsulation, componentChangeDetection, componentInlineTemplate, componentInlineStyle, defaultsStyleExt, routingScope, importCommonModule, params';
+const TEMPLATE_ARGUMENTS = 'inputName, upperName';
 
 export class FileContents {
   private templatesMap: Map<string, Function>;

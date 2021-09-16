@@ -1,7 +1,14 @@
-import {${upperName}Service} from './${upperName}.service';
+import { Controller } from '@nestjs/common';
+import { Crud } from '@nestjsx/crud';
+import { ${upperName}Service } from './${inputName}.service';
+import { ${upperName}Entity } from './${inputName}.entity';
 
-@Metadata()
-@Controller()
+@Crud({
+    model:{type:${upperName}Entity},
+    params:{
+    }
+})
+@Controller('rest/${inputName}')
 export class ${upperName}Controller {
 
   constructor(private service: ${upperName}Service) { }
