@@ -1,22 +1,22 @@
 {
     "name": "vscode-nesttpyeorm",
     "displayName": "Nest typeorm",
-    "description": "Quickly scaffold angular file templates",
-    "version": "1.6.4",
+    "description": "Quickly scaffold nest typeorm templates",
+    "version": "1.0.0",
     "icon": "images/icon.png",
-    "publisher": "alexiv",
+    "publisher": "fuhidev",
     "author": {
-        "name": "Alexander Ivanichev"
+        "name": "Phuong Hieu Ho"
     },
     "engines": {
         "vscode": "^1.22.0"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ivalexa/vscode-angular2-files"
+        "url": "https://github.com/fuhidev/nesttypeormcli"
     },
     "bugs": {
-        "url": "https://github.com/ivalexa/vscode-angular2-files/issues"
+        "url": "https://github.com/fuhidev/nesttypeormcli/issues"
     },
     "keywords": [
     ],
@@ -41,22 +41,22 @@
             "type": "object",
             "title": "Angular Files menu option configuration",
             "properties": {
-                "angular2-files.menu.controller": {
+                "nesttypeorm.menu.controller": {
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
                 },
-                "angular2-files.menu.service": {
+                "nesttypeorm.menu.service": {
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
                 },
-                "angular2-files.menu.entity": {
+                "nesttypeorm.menu.entity": {
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
                 },
-                "angular2-files.menu.module": {
+                "nesttypeorm.menu.module": {
                     "type": "boolean",
                     "default": true,
                     "description": "Shows or hides the menu item."
@@ -96,19 +96,19 @@
             ],
             "nesttypeorm": [
                 {
-                    "when": "config.angular2-files.menu.controller",
+                    "when": "config.nesttypeorm.menu.controller",
                     "command": "extension.addAngular2Controller"
                 },
                 {
-                    "when": "config.angular2-files.menu.service",
+                    "when": "config.nesttypeorm.menu.service",
                     "command": "extension.addAngular2Service"
                 },
                 {
-                    "when": "config.angular2-files.menu.module",
+                    "when": "config.nesttypeorm.menu.module",
                     "command": "extension.addAngular2Module"
                 },
                 {
-                    "when": "config.angular2-files.menu.entity",
+                    "when": "config.nesttypeorm.menu.entity",
                     "command": "extension.addAngular2Entity"
                 }
             ]
