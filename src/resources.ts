@@ -8,8 +8,7 @@ export const resources = new Map<ResourceType, IResource>([
   [
     ResourceType.Full,
     {
-      locDirName: (loc, config) =>
-        !config.defaults.module.flat ? loc.fileName : loc.dirName,
+      locDirName: (loc, config) => loc.fileName,
       locDirPath: (loc, config) => path.join(loc.dirPath, loc.dirName),
       files: [
         { name: (config) => `controller.ts`, type: TemplateType.Controller },
@@ -17,12 +16,22 @@ export const resources = new Map<ResourceType, IResource>([
         { name: (config) => `service.ts`, type: TemplateType.Service },
         { name: (config) => `entity.ts`, type: TemplateType.Entity },
       ],
-      createFolder: (config) => !config.defaults.module.flat,
-      options: [ OptionType.Module],
+      createFolder: () => true
     },
   ],
-  [ResourceType.Controller, { files: [{ name: config => `ts`, type: TemplateType.Controller }] }],
-  [ResourceType.Entity, { files: [{ name: config => `ts`, type: TemplateType.Entity }] }],
-  [ResourceType.Service, { files: [{ name: config => `ts`, type: TemplateType.Service }] }],
-  [ResourceType.Module, { files: [{ name: config => `ts`, type: TemplateType.Module }] }],
+  [ResourceType.Controller, {
+    files: [{ name: config => `ts`, type: TemplateType.Controller }]
+  }],
+  [ResourceType.Entity, {
+    files: [{ name: config => `ts`, type: TemplateType.Entity }]
+  }],
+  [ResourceType.Service, {
+    files: [{ name: config => `ts`, type: TemplateType.Service }]
+  }],
+  [ResourceType.Module, {
+    files: [{ name: config => `ts`, type: TemplateType.Module }],
+    locDirName: (loc, config) => loc.dirName,
+    locDirPath: (loc, config) => path.join(loc.dirPath, loc.dirName),
+    createFolder: (config) => true
+  }],
 ]);

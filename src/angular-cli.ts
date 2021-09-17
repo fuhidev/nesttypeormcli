@@ -16,7 +16,7 @@ const fsReaddir = promisify(fs.readdir);
 const fsStat = promisify(fs.stat);
 const fsReadFile = promisify(fs.readFile);
 
-export class AngularCli {
+export class NestJSCli {
 
 
   constructor(private readonly fc = new FileContents()) {

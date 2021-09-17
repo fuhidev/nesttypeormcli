@@ -12,8 +12,6 @@ export const config: IConfig = {
     module: {
     },
     service: {
-      flat: true,
-      spec: true,
     },
   },
 };
