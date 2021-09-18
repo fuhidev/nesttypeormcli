@@ -26,17 +26,17 @@ const addToType = (data: string, type: string, str: string) => {
   const typeIndex = data.indexOf(type, stInx);
 
   if (typeIndex == -1) {
-    const startIndex = data.lastIndexOf("]");
+    const startIndex = data.indexOf("{",stInx);
     const tmpl = `
    ${type}: [
-    "${str}"
+    ${str}
   ]`;
 
-    return data.substring(0, startIndex + 1) + "," + tmpl + data.substring(startIndex + 1, data.length);
+    return data.substring(0, startIndex + 1) + tmpl+"," + data.substring(startIndex + 1, data.length);
   }
 
   const startIndex = data.indexOf("[", typeIndex);
-  const newString =  data.substring(0,startIndex + 1) + str + "," + data.substring(startIndex+1,data.length)
+  const newString =  data.substring(0,startIndex + 1) + str + ",\n" + data.substring(startIndex+1,data.length)
   return newString;
 }
 
