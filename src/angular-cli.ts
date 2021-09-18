@@ -64,9 +64,9 @@ export class NestJSCli {
     return '.' + src.replace(modulePath, '').replace(/\\/g, '/');
   }
 
-  private async addDeclarationsToModule(loc: IPath, type: string, module: string, exports: boolean = false) {
-    const condition = (name: string) => module ? name.includes(`${module}.module.ts`) : name.includes('.module.ts');
-
+  private async addDeclarationsToModule(loc: IPath) {
+    const condition = (name: string) => name.includes('.module.ts');
+    const type = 'module';
     const moduleFiles = [];
     await this.findModulePathRecursive(loc.rootPath, moduleFiles, condition);
 
@@ -95,10 +95,10 @@ export class NestJSCli {
       const relativePath = this.getRelativePath(module, loc.dirPath);
       let content = this.addToImport(data, loc.fileName, type, relativePath);
 
-      content = this.addToArray(content, loc.fileName, type, 'declarations');
-      if (exports) {
-        content = this.addToArray(content, loc.fileName, type, 'exports');
-      }
+      content = this.addToArray(content, loc.fileName, type, 'imports');
+      // if (exports) {
+      //   content = this.addToArray(content, loc.fileName, type, 'exports');
+      // }
 
       await fsWriteFile(module, content);
     }
@@ -110,11 +110,10 @@ export class NestJSCli {
     loc.dirName = resource.hasOwnProperty('locDirName') ? resource.locDirName(loc, config) : loc.dirName;
     loc.dirPath = resource.hasOwnProperty('locDirPath') ? resource.locDirPath(loc, config) : loc.dirPath;
 
-    if (resource.hasOwnProperty('declaration') &&
-      resource.declaration &&
-      !config.defaults[name].skipImport) {
-      await this.addDeclarationsToModule(loc, resource.declaration, config.defaults[name].module, config.defaults[name].export);
+    if (name === ResourceType.Module || name === ResourceType.Full) {
+      await this.addDeclarationsToModule(loc);
     }
+
 
     const files: IFiles[] = resource.files.filter(file => (file.condition) ? file.condition(config, loc.params) : true).map((file) => {
       const fileName: string = file.name(config);

@@ -22,7 +22,7 @@ const tokenizer = (st: string) => {
 }
 
 const addToType = (data: string, type: string, str: string) => {
-  const stInx = data.indexOf(`@NgModule(`);
+  const stInx = data.indexOf(`@Module(`);
   const typeIndex = data.indexOf(type, stInx);
 
   if (typeIndex == -1) {
@@ -36,35 +36,8 @@ const addToType = (data: string, type: string, str: string) => {
   }
 
   const startIndex = data.indexOf("[", typeIndex);
-  const endIndex = data.indexOf("]", startIndex);
-
-  const area = data.substring(startIndex + 1, endIndex);
-  const lines = tokenizer(area);
-
-  let last = lines.length > 0 ? lines.pop().trimEnd() : "";
-  let commentsIndex = last.indexOf("//");
-  let injectIndex = (commentsIndex == -1) ? last.length - 1 : commentsIndex - 1;
-
-  if (commentsIndex != -1) {
-    while (last[injectIndex] == " ") {
-      injectIndex--;
-    }
-  }
-
-  if (last[injectIndex] != "," && last.length > 0) {
-    last = last.substring(0, injectIndex + 1) + "," + last.substring(injectIndex + 1, last.length);
-  }
-  // add last line
-  lines.push(last);
-
-  // inject new token
-  lines.push("\n      " + str);
-
-  const newArea = "[\t" + lines.join('') + "\n   ]";
-
-  const newStr = data.substring(0, startIndex) + newArea + data.substring(endIndex + 1, data.length);
-
-  return newStr;
+  const newString =  data.substring(0,startIndex + 1) + str + "," + data.substring(startIndex+1,data.length)
+  return newString;
 }
 
 const addToImport = (data: string, str: string) => {

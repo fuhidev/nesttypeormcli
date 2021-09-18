@@ -6,6 +6,5 @@ export interface IResource {
   locDirPath?: Function;
   files: IResourceFile[];
   createFolder?: Function;
-  declaration?: string;
   options?: OptionType[];
 }

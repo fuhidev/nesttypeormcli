@@ -20,18 +20,18 @@ export const resources = new Map<ResourceType, IResource>([
     },
   ],
   [ResourceType.Controller, {
-    files: [{ name: config => `ts`, type: TemplateType.Controller }]
+    files: [{ name: config => `controller.ts`, type: TemplateType.Controller }]
   }],
   [ResourceType.Entity, {
-    files: [{ name: config => `ts`, type: TemplateType.Entity }]
+    files: [{ name: config => `entity.ts`, type: TemplateType.Entity }]
   }],
   [ResourceType.Service, {
-    files: [{ name: config => `ts`, type: TemplateType.Service }]
+    files: [{ name: config => `service.ts`, type: TemplateType.Service }]
   }],
   [ResourceType.Module, {
-    files: [{ name: config => `ts`, type: TemplateType.Module }],
-    locDirName: (loc, config) => loc.dirName,
+    files: [{ name: config => `module.ts`, type: TemplateType.Module }],
+    locDirName: (loc, config) => loc.fileName,
     locDirPath: (loc, config) => path.join(loc.dirPath, loc.dirName),
-    createFolder: (config) => true
+    createFolder: (config) => true,
   }],
 ]);
