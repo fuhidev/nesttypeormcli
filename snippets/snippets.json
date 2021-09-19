@@ -1,0 +1,28 @@
+{
+    "typeormColGeometry": {
+      "prefix": "tcg",
+      "body": [
+        "@Column({",
+            "\tname: 'SHAPE',",
+            "\ttransformer: geometryTransformer,",
+            "\ttype: 'geometry',",
+            "\tspatialFeatureType: GeometryTypeEnum.${1:GeomertyType}",
+          "})",
+          "shape: ${1:GeomertyType};"
+      ],
+      "description": "Generate geometry column"
+    },
+    "typeormCol": {
+      "prefix": "tc",
+      "body": [
+        "@Column({",
+            "\tname: '${1:columnName}',",
+            "\tnullable: ${2:true},",
+            "\talias: '${3:aliasName}'",
+          "})",
+          "${1:columnName}: number;"
+      ],
+      "description": "Generate geometry column"
+    }
+  }
+  
