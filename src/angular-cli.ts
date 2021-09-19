@@ -64,9 +64,8 @@ export class NestJSCli {
     return '.' + src.replace(modulePath, '').replace(/\\/g, '/');
   }
 
-  private async addDeclarationsToModule(loc: IPath) {
+  private async addDeclarationsToModule(loc: IPath, type: string) {
     const condition = (name: string) => name.includes('.module.ts');
-    const type = 'module';
     const moduleFiles = [];
     await this.findModulePathRecursive(loc.rootPath, moduleFiles, condition);
 
@@ -95,7 +94,11 @@ export class NestJSCli {
       const relativePath = this.getRelativePath(module, loc.dirPath);
       let content = this.addToImport(data, loc.fileName, type, relativePath);
 
-      content = this.addToArray(content, loc.fileName, type, 'imports');
+      content = this.addToArray(content, loc.fileName, type,
+        type === 'module' ? 'imports' :
+          type === 'service' ? 'providers' :
+            type === 'controller' ? 'controllers' : null
+      );
       // if (exports) {
       //   content = this.addToArray(content, loc.fileName, type, 'exports');
       // }
@@ -110,9 +113,13 @@ export class NestJSCli {
     loc.dirName = resource.hasOwnProperty('locDirName') ? resource.locDirName(loc, config) : loc.dirName;
     loc.dirPath = resource.hasOwnProperty('locDirPath') ? resource.locDirPath(loc, config) : loc.dirPath;
 
-    if (name === ResourceType.Module || name === ResourceType.Full) {
-      await this.addDeclarationsToModule(loc);
-    }
+    const resourceType = name === ResourceType.Full || name === ResourceType.FullGis || name === ResourceType.Module ?
+      'module' :
+      name === ResourceType.Controller ? 'controller'
+        : name === ResourceType.Service || name === ResourceType.ServiceGis ? 'service' : null
+    resourceType && await this.addDeclarationsToModule(loc,
+      resourceType
+    );
 
 
     const files: IFiles[] = resource.files.filter(file => (file.condition) ? file.condition(config, loc.params) : true).map((file) => {

@@ -74,6 +74,10 @@
                 "title": "Generate Full"
             },
             {
+                "command": "extension.addNestTypeormFullGis",
+                "title": "Generate Full GIS"
+            },
+            {
                 "command": "extension.addNestTypeormModule",
                 "title": "Generate Module"
             },
@@ -84,6 +88,10 @@
             {
                 "command": "extension.addNestTypeormService",
                 "title": "Generate Service"
+            },
+            {
+                "command": "extension.addNestTypeormServiceGis",
+                "title": "Generate Service GIS"
             },
             {
                 "command": "extension.addNestTypeormEntity",
@@ -109,6 +117,10 @@
                     "command": "extension.addNestTypeormFull"
                 },
                 {
+                    "when": "config.nesttypeorm.menu.full",
+                    "command": "extension.addNestTypeormFullGis"
+                },
+                {
                     "when": "config.nesttypeorm.menu.module",
                     "command": "extension.addNestTypeormModule"
                 },
@@ -119,6 +131,10 @@
                 {
                     "when": "config.nesttypeorm.menu.service",
                     "command": "extension.addNestTypeormService"
+                },
+                {
+                    "when": "config.nesttypeorm.menu.service",
+                    "command": "extension.addNestTypeormServiceGis"
                 },
                 {
                     "when": "config.nesttypeorm.menu.entity",
