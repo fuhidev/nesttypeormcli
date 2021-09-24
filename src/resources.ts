@@ -25,7 +25,7 @@ export const resources = new Map<ResourceType, IResource>([
       locDirName: (loc, config) => loc.fileName,
       locDirPath: (loc, config) => path.join(loc.dirPath, loc.dirName),
       files: [
-        { name: (config) => `controller.ts`, type: TemplateType.Controller },
+        { name: (config) => `controller.ts`, type: TemplateType.ControllerGis },
         { name: (config) => `module.ts`, type: TemplateType.Module },
         { name: (config) => `service.ts`, type: TemplateType.ServiceGis },
         { name: (config) => `entity.ts`, type: TemplateType.Entity },
