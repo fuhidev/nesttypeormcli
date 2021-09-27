@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ${upperName}Entity } from './${inputName}.entity';
-import { GeometryService, GISTypeOrmCrudService} from 'nestjs-gis'
+import { GISTypeOrmCrudService} from 'nestjs-gis'
 @Injectable()
 export class ${upperName}Service extends GISTypeOrmCrudService<${upperName}Entity>{
 
-    constructor(@InjectRepository(${upperName}Entity) repo,
-                geo: GeometryService) {
-        super(repo,geo);
+    constructor(@InjectRepository(${upperName}Entity) repo) {
+        super(repo);
     }
 
 }
