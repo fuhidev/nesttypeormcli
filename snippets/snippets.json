@@ -33,8 +33,8 @@
             "\talias: '${3:aliasName}'",
           "})",
           "ma${1:columnName}: ${4:type};",
-          "@JoinColumn({ name: '${1:columnName' })",
-          "@ManyToOne(() => ${5:entity}, { cascade: [] })",
+          "@JoinColumn({ name: '${1:columnName}'})",
+          "@ManyToOne(() => ${5:entity}, { cascade: [${7}]  })",
           "${1:columnName}: ${5:entity};"
       ],
       "description": "Generate geometry join column many to one"
@@ -48,7 +48,7 @@
             "\talias: '${3:aliasName}'",
           "})",
           "ma${1:columnName}: ${4:type};",
-          "@JoinColumn({ name: '${1:columnName' })",
+          "@JoinColumn({ name: '${1:columnName}'})",
           "@OneToOne(() => ${5:entity}, (e) => e.${6:columnReference}, { cascade: [${7}] })",
           "${1:columnName}: ${5:entity};"
       ],
@@ -63,7 +63,7 @@
             "\talias: '${3:aliasName}'",
           "})",
           "ma${1:columnName}: ${4:type};",
-          "@JoinColumn({ name: '${1:columnName' })",
+          "@JoinColumn({ name: '${1:columnName}'})",
           "@OneToMany(() => ${5:entity}, (e) => e.${6:columnReference}, { cascade: [${7}] })",
           "${1:columnName}: ${5:entity}[];"
       ],
