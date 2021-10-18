@@ -1,83 +1,89 @@
 {
-    "typeormColLog": {
-      "prefix": "tlog",
-      "body": [
-        "@CreateDateColumn({ name: 'TGTao', nullable: true }) tgTao: Date;",
-        "@Column({ name: 'NguoiTao', nullable: true }) nguoiTao: string;",
-        "@UpdateDateColumn({ name: 'TGCapNhat', nullable: true }) tgCapNhat: Date;",
-        "@Column({ name: 'NguoiCapNhat', nullable: true }) nguoiCapNhat: string;"
-      ],
-      "description": "Generate geometry column"
-    },
-    "typeormColGeometry": {
-      "prefix": "tcg",
-      "body": [
-        "@Column({",
-            "\tname: 'SHAPE',",
-            "\ttransformer: geometryTransformer,",
-            "\ttype: 'geometry',",
-            "\tspatialFeatureType: GeometryTypeEnum.${1:GeomertyType}",
-          "})",
-          "shape: ${1:GeomertyType};"
-      ],
-      "description": "Generate geometry column"
-    },
-    "typeormCol": {
-      "prefix": "tc",
-      "body": [
-        "@Column({",
-            "\tname: '${1:columnName}',",
-            "\tnullable: ${2:true},",
-            "\talias: '${3:aliasName}'",
-          "})",
-          "${1:columnName}: ${4:type};"
-      ],
-      "description": "Generate geometry column"
-    },
-    "typeormColMO": {
-      "prefix": "tjcmo",
-      "body": [
-        "@Column({",
-            "\tname: '${1:columnName}',",
-            "\tnullable: ${2:true},",
-            "\talias: '${3:aliasName}'",
-          "})",
-          "ma${1:columnName}: ${4:type};",
-          "@JoinColumn({ name: '${1:columnName}'})",
-          "@ManyToOne(() => ${5:entity}, { cascade: [${7}]  })",
-          "${1:columnName}: ${5:entity};"
-      ],
-      "description": "Generate geometry join column many to one"
-    },
-    "typeormColOO": {
-      "prefix": "tjcoo",
-      "body": [
-        "@Column({",
-            "\tname: '${1:columnName}',",
-            "\tnullable: ${2:true},",
-            "\talias: '${3:aliasName}'",
-          "})",
-          "ma${1:columnName}: ${4:type};",
-          "@JoinColumn({ name: '${1:columnName}'})",
-          "@OneToOne(() => ${5:entity}, (e) => e.${6:columnReference}, { cascade: [${7}] })",
-          "${1:columnName}: ${5:entity};"
-      ],
-      "description": "Generate geometry join column one to one"
-    },
-    "typeormColOM": {
-      "prefix": "tjcom",
-      "body": [
-        "@Column({",
-            "\tname: '${1:columnName}',",
-            "\tnullable: ${2:true},",
-            "\talias: '${3:aliasName}'",
-          "})",
-          "ma${1:columnName}: ${4:type};",
-          "@JoinColumn({ name: '${1:columnName}'})",
-          "@OneToMany(() => ${5:entity}, (e) => e.${6:columnReference}, { cascade: [${7}] })",
-          "${1:columnName}: ${5:entity}[];"
-      ],
-      "description": "Generate geometry join column one to many"
-    }
+  "typeormColLog": {
+    "prefix": "tlog",
+    "body": [
+      "@CreateDateColumn({ name: 'TGTao', nullable: true }) tgTao: Date;",
+      "@Column({ name: 'NguoiTao', nullable: true }) nguoiTao: string;",
+      "@UpdateDateColumn({ name: 'TGCapNhat', nullable: true }) tgCapNhat: Date;",
+      "@Column({ name: 'NguoiCapNhat', nullable: true }) nguoiCapNhat: string;"
+    ],
+    "description": "Generate geometry column"
+  },
+  "typeormColGeometry": {
+    "prefix": "tcg",
+    "body": [
+      "@Column({",
+      "\tname: 'SHAPE',",
+      "\ttransformer: geometryTransformer,",
+      "\ttype: 'geometry',",
+      "\tspatialFeatureType: GeometryTypeEnum.${1:GeomertyType}",
+      "})",
+      "shape: ${1:GeomertyType};"
+    ],
+    "description": "Generate geometry column"
+  },
+  "typeormCol": {
+    "prefix": "tc",
+    "body": [
+      "@Column({",
+      "\tname: '${1:columnName}',",
+      "\tnullable: ${2:true},",
+      "\talias: '${3:aliasName}'",
+      "})",
+      "${1:columnName}: ${4:type};"
+    ],
+    "description": "Generate geometry column"
+  },
+  "typeormColMO": {
+    "prefix": "tjcmo",
+    "body": [
+      "@Column({",
+      "\tname: '${1:columnName}',",
+      "\tnullable: ${2:true},",
+      "\talias: '${3:aliasName}'",
+      "})",
+      "ma${1:columnName}: ${4:type};",
+      "@JoinColumn({ name: '${1:columnName}'})",
+      "@ManyToOne(() => ${5:entity}, {",
+      "\tonDelete: '${7:DEFAULT}'",
+      "\tonUpdate: '${8:DEFAULT}'",
+      "})",
+      "${1:columnName}: ${5:entity};"
+    ],
+    "description": "Generate geometry join column many to one"
+  },
+  "typeormColOO": {
+    "prefix": "tjcoo",
+    "body": [
+      "@Column({",
+      "\tname: '${1:columnName}',",
+      "\tnullable: ${2:true},",
+      "\talias: '${3:aliasName}'",
+      "})",
+      "ma${1:columnName}: ${4:type};",
+      "@JoinColumn({ name: '${1:columnName}'})",
+      "@OneToOne(() => ${5:entity}, (e) => e.${6:columnReference}, {",
+      "\tonDelete: '${7:CASCADE}'",
+      "\tonUpdate: '${8:DEFAULT}'",
+      "\tcascade: [${9}]",
+      "})",
+      "${1:columnName}: ${5:entity};"
+    ],
+    "description": "Generate geometry join column one to one"
+  },
+  "typeormColOM": {
+    "prefix": "tjcom",
+    "body": [
+      "@Column({",
+      "\tname: '${1:columnName}',",
+      "\tnullable: ${2:true},",
+      "\talias: '${3:aliasName}'",
+      "})",
+      "ma${1:columnName}: ${4:type};",
+      "@JoinColumn({ name: '${1:columnName}'})",
+      "@OneToMany(() => ${5:entity}, (e) => e.${6:columnReference}, { cascade: [${7}] })",
+      "${1:columnName}: ${5:entity}[];"
+    ],
+    "description": "Generate geometry join column one to many"
   }
-  
+}
