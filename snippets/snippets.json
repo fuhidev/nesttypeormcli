@@ -20,7 +20,7 @@
             "\tnullable: ${2:true},",
             "\talias: '${3:aliasName}'",
           "})",
-          "${1:columnName}: number;"
+          "${1:columnName}: ${4:type};"
       ],
       "description": "Generate geometry column"
     }
