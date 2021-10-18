@@ -2,7 +2,7 @@
     "name": "vscode-nesttypeorm",
     "displayName": "Nest typeorm",
     "description": "Quickly scaffold nest typeorm templates",
-    "version": "1.5.1",
+    "version": "1.6.1",
     "icon": "images/icon.png",
     "publisher": "fuhidev",
     "author": {

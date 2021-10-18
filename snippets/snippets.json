@@ -1,4 +1,14 @@
 {
+    "typeormColLog": {
+      "prefix": "tlog",
+      "body": [
+        "@CreateDateColumn({ name: 'TGTao', nullable: true }) tgTao: Date;",
+        "@Column({ name: 'NguoiTao', nullable: true }) nguoiTao: string;",
+        "@UpdateDateColumn({ name: 'TGCapNhat', nullable: true }) tgCapNhat: Date;",
+        "@Column({ name: 'NguoiCapNhat', nullable: true }) nguoiCapNhat: string;"
+      ],
+      "description": "Generate geometry column"
+    },
     "typeormColGeometry": {
       "prefix": "tcg",
       "body": [
