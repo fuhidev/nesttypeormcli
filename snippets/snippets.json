@@ -45,8 +45,8 @@
       "ma${1:columnName}: ${4:type};",
       "@JoinColumn({ name: '${1:columnName}'})",
       "@ManyToOne(() => ${5:entity}, {",
-      "\tonDelete: '${7:DEFAULT}'",
-      "\tonUpdate: '${8:DEFAULT}'",
+      "\tonDelete: '${7:CASCADE}',",
+      "\tonUpdate: '${8:CASCADE}',",
       "})",
       "${1:columnName}: ${5:entity};"
     ],
@@ -63,9 +63,7 @@
       "ma${1:columnName}: ${4:type};",
       "@JoinColumn({ name: '${1:columnName}'})",
       "@OneToOne(() => ${5:entity}, (e) => e.${6:columnReference}, {",
-      "\tonDelete: '${7:CASCADE}'",
-      "\tonUpdate: '${8:DEFAULT}'",
-      "\tcascade: [${9}]",
+      "\tcascade: [${9:true}]",
       "})",
       "${1:columnName}: ${5:entity};"
     ],
@@ -81,7 +79,8 @@
       "})",
       "ma${1:columnName}: ${4:type};",
       "@JoinColumn({ name: '${1:columnName}'})",
-      "@OneToMany(() => ${5:entity}, (e) => e.${6:columnReference}, { cascade: [${7}] })",
+      "@OneToMany(() => ${5:entity}, (e) => e.${6:columnReference}, {",
+      "})",
       "${1:columnName}: ${5:entity}[];"
     ],
     "description": "Generate geometry join column one to many"
